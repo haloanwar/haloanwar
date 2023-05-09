@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coba Tailwind CSS</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/addf044e73.js"
+      crossorigin="anonymous"></script>
+    <style>
+      /* STYLE UNTUK RATING BINTANG */
+      .rating {
+        display: inline-block;
+      }
+
+      .rating input {
+        display: none;
+      }
+
+      .rating label {
+        float: right;
+        color: #ccc;
+      }
+
+      .rating label i {
+        cursor: pointer;
+        font-size: 1.5rem;
+        padding: 0 0.2rem;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .rating input:checked ~ label {
+        color: #ffc107;
+      }
+
+      .rating input:checked ~ label i {
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- KODE HTML UNTUK RATING BINTANG -->
+    <div class="rating mx-auto">
+      <input type="radio" id="star5" name="rating" value="5" />
+      <label for="star5" class="star"><i class="fa fa-star"></i></label>
+      <input type="radio" id="star4" name="rating" value="4" />
+      <label for="star4" class="star"><i class="fa fa-star"></i></label>
+      <input type="radio" id="star3" name="rating" value="3" />
+      <label for="star3" class="star"><i class="fa fa-star"></i></label>
+      <input type="radio" id="star2" name="rating" value="2" />
+      <label for="star2" class="star"><i class="fa fa-star"></i></label>
+      <input type="radio" id="star1" name="rating" value="1" />
+      <label for="star1" class="star"><i class="fa fa-star"></i></label>
+    </div>
+    <!-- END KODE HTML UNTUK RATING BINTANG -->
+
+    <hr class="bg-black h-1 my-4" />
+
+    <script>
+      // KODE JAVASCRIPT UNTUK RATING BINTANG
+      const rating = document.querySelector(".rating");
+      const stars = rating.querySelectorAll("input");
+
+      stars.forEach((star, index) => {
+        star.addEventListener("click", function () {
+          for (let i = 0; i < stars.length; i++) {
+            if (i <= index) {
+              stars[i].checked = true;
+            } else {
+              stars[i].checked = false;
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
